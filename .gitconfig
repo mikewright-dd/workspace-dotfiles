@@ -1,0 +1,77 @@
+[core]
+	hooksPath = /usr/local/dd/global_hooks
+	editor = vim
+	pager = 
+	excludesFile = ~/.gitignore_global
+
+[user]
+	email = mike.wright@datadoghq.com
+	name = Mike Wright
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+	insteadOf = git://github.com/
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+[include]
+	path = /Users/mike.wright/.config/gitsign/gitconfig
+
+
+[alias]
+	co = checkout
+	ci = commit
+	dt = difftool -- ":(exclude)vendor/"
+	st = status
+	br = branch
+	fup = ! git ci --amend --no-edit && git push -f origin `git rev-parse --abbrev-ref HEAD`
+	praise = blame
+
+	# List all available git aliases
+	# Usage: git aliases
+	aliases = "!git config -l | grep alias | cut -c 7-"
+
+	# Create a "work in progress" commit with your current changes
+	# Usage: git wip
+	wip = !git add . && git commit -am "WIP" --no-verify
+
+	# Undo your last commit
+	# Usage: git undo
+	undo = reset --soft HEAD~1
+
+	# "Safer" force push -- see http://weiqingtoh.github.io/force-with-lease/
+	# Usage: git pushf
+	pushf = push --force-with-lease
+
+	# Create a new branch
+	# Usage: git cb <branch-name>
+	cb = checkout -b
+
+	# Run git status with the short-format flag
+	# Usage: git s
+	s = status --short
+
+	# Deletes local branches references that have already been merged
+	gone = ! git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D
+
+[diff]
+	tool = vimdiff
+
+[merge]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[core]
+	hooksPath = /usr/local/dd/global_hooks
+
+[push]
+	autoSetupRemote = true
+
+[pull]
+	ff = only
+
+[dd-gitsign]
+	username = mikewright-dd

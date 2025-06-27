@@ -1,0 +1,6 @@
+shell: zsh
+region: us-east-1
+dotfiles: https://github.com/nalybuites/workspace-dotfiles
+editor: cursor
+vscode-extensions:
+  - "bazelbuild.vscode-bazel"
