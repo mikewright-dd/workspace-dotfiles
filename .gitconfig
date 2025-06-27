@@ -18,7 +18,6 @@
 [include]
 	path = /Users/mike.wright/.config/gitsign/gitconfig
 
-
 [alias]
 	co = checkout
 	ci = commit
@@ -64,8 +63,8 @@
 [difftool]
 	prompt = false
 
-[core]
-	hooksPath = /usr/local/dd/global_hooks
+[init]
+	defaultBranch = main
 
 [push]
 	autoSetupRemote = true
